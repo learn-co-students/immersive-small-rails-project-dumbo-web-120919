@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+Baker.destroy_all
+Flavor.destroy_all
+Cake.destroy_all
+Ingredient.destroy_all
 
 Bakery.create(name: "Cakery Bakery", location: "81 Prospect St, Brooklyn, NY", phone: "(555)555-5555", hours: "Tuesday - Sunday, 9am - 6pm", img_url: "image", about: "About this bakery alsdasdklgafjgla fgoahfdgalfkg", email: "cakerybakery@gmail.com", password: "yum")
 
@@ -33,13 +37,17 @@ Cake.create(name: "Spiderman Cake", category: "character" , occasion: "birthday"
 Cake.create(name: "Cookie Cake", category: "cookie" , occasion: "birthday", description: "This is a great cake", img_url: "image" , serving_size: 12, dietary_restrictions: "none", baker_id: Baker.all.sample.id, bakery_id: 1)
 Cake.create(name: "Holiday Cake", category: "floral" , occasion: "holiday", description: "This is a great cake", img_url: "image" , serving_size: 12, dietary_restrictions: "none", baker_id: Baker.all.sample.id, bakery_id: 1)
 
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is also YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is very YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is wildly YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is crazy YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is totally YUM")
-Flavor.create(name: Faker::Dessert.flavor, description: "This flavor is super YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is also YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is very YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is wildly YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is crazy YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is totally YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is super YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is amazingly YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is immensely YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is especially YUM")
+Flavor.create(name: Faker::Dessert.unique.flavor, description: "This flavor is supremely YUM")
 
 Ingredient.create(name: "Eggs", cake_id: Cake.all.sample.id, flavor_id: Flavor.all.sample.id)
 Ingredient.create(name: "Milk", cake_id: Cake.all.sample.id, flavor_id: Flavor.all.sample.id)
