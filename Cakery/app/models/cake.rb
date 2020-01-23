@@ -4,6 +4,15 @@ class Cake < ApplicationRecord
     has_many :ingredients
     has_many :flavors, through: :ingredients
 
+<<<<<<< HEAD
+    
+
+    # def find_flavors
+    #     self.ingredients.each do |ingredient|
+    #         ingredient.flavor.name
+    #     end
+    # end
+=======
     validates :name, uniqueness: true
     validates :dietary_restrictions, presence: true
     validates :serving_size, numericality: {greater_than: 0}
@@ -14,6 +23,7 @@ class Cake < ApplicationRecord
             self.errors.add(:flavor_ids, "Too many flavors")
         end
     end
+>>>>>>> master
 
 
     # accepts_nested_attributes_for :flavors

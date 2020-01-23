@@ -1,4 +1,9 @@
 <h1>Baker Form</h1>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |message| %>
+    <%= message %>
+    <% end %>
+<% end %>
 <hr>
 <%= form_for @baker do |f| %>
     <%= f.label :name, 'Name: '%>
@@ -22,7 +27,4 @@
     <%= f.hidden_field :bakery_id, value: 1 %><br>
 <br>    
     <%= f.submit %>
-    <% if @baker.id %>
-        <%= button_to "Delete Baker", baker_path(@baker), method: :delete %>  
-    <% end %>
 <% end %>
