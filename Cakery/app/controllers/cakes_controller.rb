@@ -1,15 +1,18 @@
 class CakesController < ApplicationController
     before_action :find_cake, only: [:show, :edit, :update, :destroy]
-    
+    before_action :foreign_keys, only: [:new, :edit]
+
     def index
         @cakes = Cake.all
     end
 
     def show
+    
     end
 
     def new
         @cake = Cake.new
+
     end
 
     def create
@@ -40,6 +43,13 @@ class CakesController < ApplicationController
     end
 
     def cake_params
-        params.require(:cake).permit(:name, :category, :occasion, :description, :serving_size, :dietary_restrictions, :img_url, :bakery_id, :baker_id)
+        params.require(:cake).permit(:name, :category, :occasion, :description, :serving_size, :img_url, :bakery_id, :baker_id, dietary_restrictions: [])
     end
+
+    def foreign_keys
+        @bakers = Baker.all
+        @bakeries = Bakery.all
+        @ingredients = Ingredient.all
+    end
+
 end
