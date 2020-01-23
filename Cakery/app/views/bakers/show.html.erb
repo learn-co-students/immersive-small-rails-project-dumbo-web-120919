@@ -1,1 +1,23 @@
-<h1>This is the baker show page</h1>
+<h1>All About <%=@baker.name%></h1>
+<hr>
+<img src="<%=@baker.img_url%>" alt="baker image" width="450" height="450">
+
+<p>Name: <%= @baker.name %></p>
+
+<% if @baker.star_baker == true %>
+    <p>This is a Star Baker!</p>
+<% end %>
+
+<p>Favorite Quote: "<%= @baker.quote %>"</p>
+
+<p>Bio: <%= @baker.bio %></p>
+
+<p>Cakes: </p>
+<ul>
+<% @baker.cakes.each do |cake| %>
+<li><%= cake.name %></li>
+<% end %>
+</ul>
+<br>
+<p><%= link_to "Back to Bakers", bakers_path %></p>
+<p><%= link_to "Back Home", bakeries_path %></p>

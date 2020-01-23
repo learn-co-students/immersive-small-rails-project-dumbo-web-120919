@@ -1,1 +1,18 @@
-<h1>This is the bakery show page</h1>
+<h1 style="text-align:center;">About Cakery Bakery</h1>
+
+<h3 style="text-align:center;">Our bakery is the bees' knees!</h3>
+<hr>
+<img src="https://thecakeblog.com/wp-content/uploads/2011/08/peggy_porschen_cakes5.jpg" alt="bakery image">
+
+
+<p><b>About Us: </b><%= @bakery.about %></p>
+
+<p><b>Location: </b><%= @bakery.location %></p>
+
+<p><b>Hours: </b><%= @bakery.hours %></p>
+
+<p><b>Phone: </b><%= @bakery.phone %></p>
+
+<p><b>E-mail: </b><%= @bakery.email %></p>
+
+<p><%= link_to "Back Home", bakeries_path %></p>

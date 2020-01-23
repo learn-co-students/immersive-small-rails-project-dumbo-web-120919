@@ -1,8 +1,9 @@
 class BakeriesController < ApplicationController
-    before_action :find_bakery, only: [:show, :edit, :update]
+    before_action :find_bakery, only: [:index, :show, :edit, :update]
     
     def index
-        @bakeries = Bakery.all
+        @cakes = Cake.all 
+        @bakers = Baker.all 
     end
 
     def show
@@ -12,15 +13,19 @@ class BakeriesController < ApplicationController
     end
     
     def update
-        @bakery.update(bakery_params)
-
-        redirect_to bakery_path(@bakery)
+        if @bakery.update(bakery_params)
+            redirect_to bakery_path(@bakery)
+        else
+            flash[:errors] = @bakery.errors.full_messages
+      
+            redirect_to edit_bakery_path(@bakery.id)
+        end
     end
 
     private
 
     def find_bakery
-        @bakery = Bakery.find(params[:id])
+        @bakery = Bakery.find(1)
     end
 
     def bakery_params

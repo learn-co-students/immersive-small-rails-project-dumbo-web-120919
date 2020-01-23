@@ -1,1 +1,35 @@
-<h1>This is the bakery edit page</h1>
+<h1>Bakery Edit Form</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |message| %>
+    <p> <%= message %> </p>
+  <% end%>
+<% end%>
+<hr>
+
+<%= form_for @bakery do |f| %>
+    <%= f.label :name, 'Name: '%>
+    <%= f.text_field :name %><br>
+<br>
+    <%= f.label :about, 'About: '%>
+    <%= f.text_area :about %><br>
+<br>
+    <%= f.label :img_url, 'Image URL: '%>
+    <%= f.text_field :img_url %><br>
+<br>
+    <%= f.label :location, 'Location: '%>
+    <%= f.text_field :location %><br>
+<br>
+    <%= f.label :hours, 'Hours: '%>
+    <%= f.text_field :hours %><br>
+<br>
+    <%= f.label :phone, 'Phone: '%>
+    <%= f.text_field :phone %><br>
+<br>
+    <%= f.label :email, 'E-mail: '%>
+    <%= f.text_field :email %><br>
+<br>
+    <%= f.label :password, 'Password: '%>
+    <%= f.text_field :password %><br>
+<br>
+    <%= f.submit %>
+<% end %>
