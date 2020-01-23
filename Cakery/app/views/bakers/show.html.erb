@@ -13,11 +13,12 @@
 <p>Bio: <%= @baker.bio %></p>
 
 <p>Cakes: </p>
-<ul>
+
 <% @baker.cakes.each do |cake| %>
-<li><%= cake.name %></li>
+    <img src="<%= cake.img_url %>" alt="cake image"><br>
+    <%= link_to cake.name, cake_path(cake) %><br>
 <% end %>
-</ul>
+
 <br>
 <p><%= link_to "Back to Bakers", bakers_path %></p>
 <p><%= link_to "Back Home", bakeries_path %></p>

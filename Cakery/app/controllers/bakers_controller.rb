@@ -15,8 +15,13 @@ class BakersController < ApplicationController
 
     def create
         @baker = Baker.create(baker_params)
-        
-        redirect_to baker_path(@baker)
+
+        if @baker.valid?
+            redirect_to baker_path(@baker)
+        else
+            flash[:errors] = @baker.errors.full_messages
+            redirect_to new_baker_path
+        end
     end
 
     def edit
@@ -25,7 +30,12 @@ class BakersController < ApplicationController
     def update
         @baker.update(baker_params)
 
-        redirect_to baker_path(@baker)
+        if @baker.valid?
+            redirect_to baker_path(@baker)
+        else
+            flash[:errors] = @baker.errors.full_messages
+            redirect_to edit_baker_path
+        end
     end
 
     def destroy
