@@ -11,7 +11,6 @@ Flavor.destroy_all
 Cake.destroy_all
 Ingredient.destroy_all
 
-
 Bakery.create(name: "Cakery Bakery", location: "81 Prospect St, Brooklyn, NY", phone: "(555)555-5555", hours: "Tuesday - Sunday, 9am - 6pm", img_url: "https://thecakeblog.com/wp-content/uploads/2011/08/peggy_porschen_cakes5.jpg", about: "About this bakery alsdasdklgafjgla fgoahfdgalfkg", email: "cakerybakery@gmail.com", password: "yum")
 
 Baker.create(name: "Antony", employment_status: "Active" , bio: "Describing himself as a “Bollywood baker”, Antony grew up in India, where he learned to bake with his father. It is his father who remains his inspiration – it’s thanks to him that Antony got serious about baking. Antony’s adventurous attitude to flavour profiling is the result of a willingness to try new foods, his determination to ask probing questions of established bakers, and – in particular – his cultural roots and his travels around the world. His bold, inquisitive nature has enabled him to collect ideas and techniques that he is unafraid to use in his own creations, making his bakes at times unconventional and always interesting. He takes his research very seriously: he once tasted 50 choux buns during a single trip to Paris.", img_url: "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2018/08/New-Project-4.jpg" , quote: Faker::Quote.unique.most_interesting_man_in_the_world, star_baker: false, bakery_id: 1)

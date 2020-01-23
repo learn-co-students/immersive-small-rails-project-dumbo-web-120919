@@ -7,7 +7,6 @@ class CakesController < ApplicationController
     end
 
     def show
-    
     end
 
     def new
@@ -17,17 +16,26 @@ class CakesController < ApplicationController
 
     def create
         @cake = Cake.create(cake_params)
-
-        redirect_to cake_path(@cake)
+        
+        if @cake.valid?
+            redirect_to cake_path(@cake)
+        else
+            flash[:errors] = @cake.errors.full_messages
+            redirect_to new_cake_path
+        end
     end
 
     def edit
     end
     
     def update
-        @cake.update(cake_params)
-
-        redirect_to cake_path(@cake)
+        @cake.update(cake_params) 
+        if @cake.valid?
+            redirect_to cake_path(@cake)
+        else
+            flash[:errors] = @cake.errors.full_messages
+            redirect_to edit_cake_path
+        end      
     end
 
     def destroy
@@ -43,13 +51,15 @@ class CakesController < ApplicationController
     end
 
     def cake_params
-        params.require(:cake).permit(:name, :category, :occasion, :description, :serving_size, :img_url, :bakery_id, :baker_id, dietary_restrictions: [])
+        params.require(:cake).permit(:name, :occasion, :description, :serving_size, :img_url, :bakery_id, :baker_id, flavors_attributes:[:name], flavor_ids:[],dietary_restrictions: [])
     end
 
     def foreign_keys
         @bakers = Baker.all
         @bakeries = Bakery.all
-        @ingredients = Ingredient.all
+        @flavors = Flavor.all
     end
+
+    
 
 end
