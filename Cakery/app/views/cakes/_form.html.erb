@@ -1,4 +1,10 @@
 <div>
+    <%if flash[:errors]%>
+        <% flash[:errors].each do |message|%>
+            <%=message%>
+        <%end%>
+    <%end%>
+    
     <%= form_for @cake do |f|%>
 
     <%= f.label "Name:" %>
@@ -11,9 +17,6 @@
     <%= f.label "Occasion:" %>
     <%= f.select :occasion, ["Wedding", "Birthday", "Holiday"] %>
 <br>
-    <%= f.label "Category:" %>
-    <%= f.select :category, ["ice cream", "crystal", "floral", "animal", "character", "cookie"] %>
-<br>
     <%= f.label "Description:" %>
     <%= f.text_area :description %>
 <br>
@@ -23,14 +26,14 @@
     <%= f.label :serving_size, "Serving Size:" %>
     <%= f.number_field :serving_size %>
 <br>
-   <h4> <%= f.fields_for :ingredients do |ingredient| %>
-    <%= ingredient.collection_select :flavor_id, @flavors, :id, :name, {:prompt => 'Select your flavors'}, {multiple: true}%>
-    <%end%></h4>
+    <h4> <%= f.label "Flavors"%></h4><br>
+    <ul> <%= f.collection_check_boxes :flavor_ids, @flavors, :id, :name%></ul>
+    
 
     <h4><%= f.label :dietary_restrictions, "Dietary Restrictions:" %></h4>
-    <% dietary_restrictions = ["Nuts", "Eggs", "Vegan", "Gluten Free", "Dairy"] %>
+    <% dietary_restrictions = ["🥜", "🥚", "🌱", "🍞🚫", "🐄"] %>
     <% dietary_restrictions.each do |dr|%>
-        <h5><%= f.check_box :dietary_restrictions, { multiple: true }, dr, false %>
+        <h5><%= f.check_box :dietary_restrictions, { multiple: true },dr, false %>
         <%= f.label dr%></h5>
     <%end%>
 

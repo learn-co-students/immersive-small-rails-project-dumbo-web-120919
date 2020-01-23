@@ -4,20 +4,22 @@
     <h4><%= @cake.name%></h4>
     <h4> Baker: <%= @cake.baker.name%></h4>
     <img class= "show-img" src="<%= @cake.img_url%>" width="350" height="350">
-    <h4> Category: <%= @cake.category%> </h4>
     <h4> Occasion: <%= @cake.occasion%> </h4>
 
 <hr>
     <h3>Flavors</h3>
-    <% @cake.ingredients.each do |ingredient| %>
-      <div>
-        <h4><%= ingredient.flavor.name%></h4>
-        <h4><%= ingredient.flavor.description %></h4><br>   
-      </div>
-    <% end %>
+    <% @cake.flavors.each do |flavor| %>
+        <h4><%= flavor.name%></h4>
+
+    <%end%>  
 <hr>
-    <h4> Dietary Restrictions: <%= @cake.dietary_restrictions%> </h4>
-    
+    <h4> Dietary Restrictions: 
+    <%dr = @cake.dietary_restrictions%>
+    <%dr_parse = JSON.parse(dr)%> 
+    <%dr_parse.each do |dietary_restrictions|%>
+      <%= dietary_restrictions%>
+    <%end%>
+    </h4>
 
     <span><%= button_to "Back To All Cakes", cakes_path, :method => :get %></span>
     <span><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></span>
