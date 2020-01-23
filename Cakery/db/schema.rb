@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_174629) do
+ActiveRecord::Schema.define(version: 2020_01_21_214349) do
 
   create_table "bakeries", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.string "phone"
     t.string "hours"
-    t.string "about"
+    t.text "about"
     t.string "email"
     t.string "password"
     t.string "img_url"

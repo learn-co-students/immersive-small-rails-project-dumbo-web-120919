@@ -6,6 +6,7 @@ class BakersController < ApplicationController
     end
 
     def show
+        
     end
 
     def new
@@ -14,7 +15,7 @@ class BakersController < ApplicationController
 
     def create
         @baker = Baker.create(baker_params)
-
+        
         redirect_to baker_path(@baker)
     end
 
