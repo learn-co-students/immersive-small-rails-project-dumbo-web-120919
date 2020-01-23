@@ -11,11 +11,6 @@ Flavor.destroy_all
 Cake.destroy_all
 Ingredient.destroy_all
 
-Baker.destroy_all
-Flavor.destroy_all
-Cake.destroy_all
-Ingredient.destroy_all
-
 Bakery.create(name: "Cakery Bakery", location: "81 Prospect St, Brooklyn, NY", phone: "(555)555-5555", hours: "Tuesday - Sunday, 9am - 6pm", img_url: "https://thecakeblog.com/wp-content/uploads/2011/08/peggy_porschen_cakes5.jpg", about: "About this bakery alsdasdklgafjgla fgoahfdgalfkg", email: "cakerybakery@gmail.com", password: "yum")
 
 Baker.create(name: "Antony", employment_status: "active" , bio: "This is my bio", img_url: "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2018/08/New-Project-4.jpg" , quote: "This is my quote", star_baker: false, bakery_id: 1)

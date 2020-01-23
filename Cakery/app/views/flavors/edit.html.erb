@@ -1,2 +1,3 @@
 <h1>Change a Flavor</h1>
 <%= render 'form' %>
+<span><%= button_to "Delete", flavor_path(@flavor.id), :method => :delete %></span>
