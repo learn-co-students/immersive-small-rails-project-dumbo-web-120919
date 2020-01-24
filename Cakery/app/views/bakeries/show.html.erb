@@ -1,17 +1,20 @@
+<div class="row">
+    <div class="col-6">
+        <img class= "show-img" src="https://thecakeblog.com/wp-content/uploads/2011/08/peggy_porschen_cakes5.jpg" alt="bakery image">
+    </div>
+    <div class="col-6">
 
+        <p><b>About Us: </b><%= @bakery.about %></p>
 
+        <p><b>Location: </b><%= @bakery.location %></p>
 
-<img src="https://thecakeblog.com/wp-content/uploads/2011/08/peggy_porschen_cakes5.jpg" alt="bakery image">
+        <p><b>Hours: </b><%= @bakery.hours %></p>
 
+        <p><b>Phone: </b><%= @bakery.phone %></p>
 
-<p><b>About Us: </b><%= @bakery.about %></p>
+        <p><b>E-mail: </b><%= @bakery.email %></p>
 
-<p><b>Location: </b><%= @bakery.location %></p>
-
-<p><b>Hours: </b><%= @bakery.hours %></p>
-
-<p><b>Phone: </b><%= @bakery.phone %></p>
-
-<p><b>E-mail: </b><%= @bakery.email %></p>
-
-<p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+    </div>
+</div>
+        <p><%= button_to "Edit Info", edit_bakery_path, :method => :get %></p>
+        <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
