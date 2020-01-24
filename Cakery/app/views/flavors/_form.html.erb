@@ -1,0 +1,13 @@
+<div>
+    <%= form_for @flavor do |f|%>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name%>
+    <br>
+    <%= f.label "Description:" %>
+    <%= f.text_area :description%>
+    <br>
+
+    <%= f.submit "Save"%>
+
+<%end%>
+</div>

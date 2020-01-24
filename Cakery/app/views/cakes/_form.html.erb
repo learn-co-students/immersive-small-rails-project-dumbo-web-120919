@@ -1,0 +1,40 @@
+<div>
+    <%= form_for @cake do |f|%>
+
+    <%= f.label "Name:" %>
+    <%= f.text_field :name%>
+<br>
+    <%= f.label "Baker"%>
+    <%= f.collection_select :baker_id, @bakers, :id, :name%>
+    <%= f.hidden_field :bakery_id, value: 1%>
+<br>
+    <%= f.label "Occasion:" %>
+    <%= f.select :occasion, ["Wedding", "Birthday", "Holiday"] %>
+<br>
+    <%= f.label "Category:" %>
+    <%= f.select :category, ["ice cream", "crystal", "floral", "animal", "character", "cookie"] %>
+<br>
+    <%= f.label "Description:" %>
+    <%= f.text_area :description %>
+<br>
+    <%= f.label :img_url, "Image URL:" %>
+    <%= f.text_field :img_url %>
+<br>
+    <%= f.label :serving_size, "Serving Size:" %>
+    <%= f.number_field :serving_size %>
+<br>
+   <h4> <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.collection_select :flavor_id, @flavors, :id, :name, {:prompt => 'Select your flavors'}, {multiple: true}%>
+    <%end%></h4>
+
+    <h4><%= f.label :dietary_restrictions, "Dietary Restrictions:" %></h4>
+    <% dietary_restrictions = ["Nuts", "Eggs", "Vegan", "Gluten Free", "Dairy"] %>
+    <% dietary_restrictions.each do |dr|%>
+        <h5><%= f.check_box :dietary_restrictions, { multiple: true }, dr, false %>
+        <%= f.label dr%></h5>
+    <%end%>
+
+    <%= f.submit "Save"%>
+<%end%>
+
+</div>

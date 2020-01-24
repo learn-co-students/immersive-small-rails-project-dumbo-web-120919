@@ -1,0 +1,10 @@
+<h1>Meet Our Bakers!</h1>
+<img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/08/GBBO-S10-Bakers-Group-13-1024.png" alt="group photo">
+
+<% @bakers.each do |baker| %>
+    <img src="<%= baker.img_url %>" alt="individual photo" width="350" height="350">
+    <%= link_to baker.name, baker_path(baker) %>
+<% end %>
+
+
+<p><%= link_to "Back Home", bakeries_path %></p>

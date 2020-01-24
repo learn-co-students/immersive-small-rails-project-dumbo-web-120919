@@ -1,0 +1,7 @@
+<h1>CAKES</h1>
+
+ <% @cakes.each do |cake|%>
+        <h1> <%= link_to cake.name, cake_path(cake.id)%></h1>
+        <img class= "index-img" src="<%= cake.img_url%>">
+        <hr>     
+ <%end%>
