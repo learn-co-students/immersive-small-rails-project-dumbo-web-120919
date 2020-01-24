@@ -5,6 +5,13 @@
 <%= link_to "Cakes", cakes_path %>
 <%= link_to "Bakers", bakers_path %><br>
 
+<% if @logged_in_bakery %>
+    <li class='right'> <%= link_to "Logout", eliminate_path, method: :delete %> </li>
+    <li class='right'>Welcome, <%= @logged_in_bakery.name %>!</li>
+<% else %>
+    <li class='right'><%= link_to 'Login', login_path %></li>
+<% end %>
+
 <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Black_Forest_Choc_Cake_1024x450_3-380x360.png" alt="cake 1 image">
 <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/blackberry_pound_cake_1125x1125-380x360.png" alt="cake 2 image">
 <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Rahul_Surprise_Cake_1125x1125_2-380x360.png" alt="cake 2 image">
@@ -17,3 +24,4 @@
     ⭐️ <%= link_to baker.name, baker_path(baker) %>
     <% end %>
 <% end %>
+
