@@ -17,7 +17,7 @@
         <p><b>Bio: </b><%= @baker.bio %></p>
     </div>
   </div>
-
+<hr>
 
 <p><b>Cakes by <%=@baker.name%>: </b></p>
 
@@ -31,7 +31,7 @@
         </div>
     <% end %>
 </div>
-
+<hr>
 <br>
 <p><%= button_to "Back To Bakers", bakers_path, :method => :get %></p>
 <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
