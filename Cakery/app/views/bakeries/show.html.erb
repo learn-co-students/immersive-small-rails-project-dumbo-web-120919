@@ -14,7 +14,11 @@
 
         <p><b>E-mail: </b><%= @bakery.email %></p>
 
-    </div>
-</div>
-        <p><%= button_to "Edit Info", edit_bakery_path, :method => :get %></p>
-        <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+
+<p> <% if @logged_in_bakery %>
+        <%= button_to "Edit Info", edit_bakery_path, :method => :get %>
+    <%end%>
+</p><hr>
+
+<p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+

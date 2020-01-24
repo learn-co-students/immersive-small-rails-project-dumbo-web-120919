@@ -8,23 +8,30 @@
 
         <p><b> Description:</b> <%= @cake.description%></p>
 
+
+          
         <p><b> Suggested Occasion:</b> <%= @cake.occasion%></p>
+<hr>
+    <p><b>Flavors: </b></p>
+    <ul>
+    <% @cake.flavors.each do |flavor| %>
+        <li><%= flavor.name %></li>
+    <%end%> 
+    </ul> 
+<hr>
+    <p><b> Dietary Restrictions: </b></p>
+        <%dr = @cake.dietary_restrictions%>
+        <%dr_parse = JSON.parse(dr)%> 
+        <%dr_parse.each do |dietary_restrictions|%>
+        <span><%= dietary_restrictions%></span>
+        <%end%>
 
-        <p><b>Flavors: </b></p>
-            <ul>
-            <% @cake.flavors.each do |flavor| %>
-                <li><%= flavor.name %></li>
-            <%end%> 
-            </ul> 
-
-        <p><b> Dietary Restrictions: </b></p>
-            <%dr = @cake.dietary_restrictions%>
-            <%dr_parse = JSON.parse(dr)%> 
-            <%dr_parse.each do |dietary_restrictions|%>
-            <span><%= dietary_restrictions%></span>
-            <%end%>
-    </div>  
-</div>    
+    <p> <% if @logged_in_bakery %>
+            <%= button_to "Make Changes", edit_cake_path, :method => :get %>
+        <%end%> </p><hr>    
 
     <p><%= button_to "Back To All Cakes", cakes_path, :method => :get %></p>
-    <p><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></p>
+    <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+
+</div>    
+
