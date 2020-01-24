@@ -1,6 +1,6 @@
 class BakeriesController < ApplicationController
     before_action :find_bakery, only: [:index, :show, :edit, :update]
-    skip_before_action :authorize, only: [:new,:create,:index]
+    # skip_before_action :authorize, only: [:new,:create,:index]
     
     def index
         @cakes = Cake.all 

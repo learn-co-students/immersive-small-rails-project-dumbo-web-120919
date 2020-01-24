@@ -8,13 +8,21 @@
     <%= bootstrap_form_for(@cake, layout: :horizontal, label_col: "col-md-2", control_col: "col-md-10") do |f|%>
 
     <%= f.text_field :name %>
+
     <%= f.collection_select :baker_id, @bakers, :id, :name%>
+
     <%= f.hidden_field :bakery_id, value: 1%>
+
     <%= f.select :occasion, ["Wedding", "Birthday", "Holiday"] %>
+
     <%= f.text_area :description %>
+
     <%= f.text_field :img_url, label: "Image URL" %>
+
     <%= f.number_field :serving_size %>
+
     <%= f.collection_check_boxes :flavor_ids, @flavors, :id, :name, {label: "Flavors", inline: true} %>
+
     <%= f.form_group :dietary_restrictions, label: { text: "Dietary Restrictions" } do %>
         <% dietary_restrictions = ["🥜 Nuts", "🥚 Eggs", "🌱 Vegan", "🍞🚫 Gluten Free", "🐄 Dairy"] %>
         <% dietary_restrictions.each do |dr|%>
@@ -22,8 +30,9 @@
         <%end%>
     <% end %>
 
-</br>
+    <br>
     <%= f.submit "Save"%>
-<%end%>
+    <hr>
+    <%end%>
 
 </div>

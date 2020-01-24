@@ -19,12 +19,12 @@
   </div>
 
 
-<p><b>Cakes: </b></p>
+<p><b>Cakes by <%=@baker.name%>: </b></p>
 
 <div class="baker-wrapper">
     <% @baker.cakes.each do |cake| %>
-        <div class="card text-center" style="width: 350px; margin-bottom:14px;">
-            <img src="<%= cake.img_url %>" class="card-img-top" alt="cake image" width="350" height="350">
+        <div class="card text-center" style="width: 300px; margin-bottom:14px;">
+            <img src="<%= cake.img_url %>" class="card-img-top" alt="cake image" width="300" height="300">
             <div class="card-body">
                 <%= link_to cake.name, cake_path(cake) %>
             </div>
