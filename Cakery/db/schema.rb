@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_214349) do
+ActiveRecord::Schema.define(version: 2020_01_24_032113) do
 
   create_table "bakeries", force: :cascade do |t|
     t.string "name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_214349) do
     t.string "category"
     t.string "description"
     t.integer "serving_size"
-    t.string "dietary_restrictions"
+    t.string "dietary_restrictions", default: "[]"
     t.string "img_url"
     t.string "occasion"
     t.integer "bakery_id"

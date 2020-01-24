@@ -15,6 +15,7 @@ class CakesController < ApplicationController
     end
 
     def create
+        
         @cake = Cake.create(cake_params)
         
         if @cake.valid?
@@ -51,7 +52,7 @@ class CakesController < ApplicationController
     end
 
     def cake_params
-        params.require(:cake).permit(:name, :occasion, :description, :serving_size, :img_url, :bakery_id, :baker_id, flavors_attributes:[:name], flavor_ids:[],dietary_restrictions: [])
+        params.require(:cake).permit(:name, :occasion, :description, :serving_size, :img_url, :bakery_id, :baker_id, flavors_attributes:[:name], flavor_ids:[], dietary_restrictions: [])
     end
 
     def foreign_keys

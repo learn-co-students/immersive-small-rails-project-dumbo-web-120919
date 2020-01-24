@@ -5,38 +5,24 @@
         <%end%>
     <%end%>
     
-    <%= form_for @cake do |f|%>
+    <%= bootstrap_form_for(@cake, layout: :horizontal, label_col: "col-md-2", control_col: "col-md-10") do |f|%>
 
-    <%= f.label "Name:" %>
-    <%= f.text_field :name%>
-<br>
-    <%= f.label "Baker"%>
+    <%= f.text_field :name %>
     <%= f.collection_select :baker_id, @bakers, :id, :name%>
     <%= f.hidden_field :bakery_id, value: 1%>
-<br>
-    <%= f.label "Occasion:" %>
     <%= f.select :occasion, ["Wedding", "Birthday", "Holiday"] %>
-<br>
-    <%= f.label "Description:" %>
     <%= f.text_area :description %>
-<br>
-    <%= f.label :img_url, "Image URL:" %>
-    <%= f.text_field :img_url %>
-<br>
-    <%= f.label :serving_size, "Serving Size:" %>
+    <%= f.text_field :img_url, label: "Image URL" %>
     <%= f.number_field :serving_size %>
-<br>
-    <h4> <%= f.label "Flavors"%></h4><br>
-    <ul> <%= f.collection_check_boxes :flavor_ids, @flavors, :id, :name%></ul>
-    
+    <%= f.collection_check_boxes :flavor_ids, @flavors, :id, :name, {label: "Flavors", inline: true} %>
+    <%= f.form_group :dietary_restrictions, label: { text: "Dietary Restrictions" } do %>
+        <% dietary_restrictions = ["🥜 Nuts", "🥚 Eggs", "🌱 Vegan", "🍞🚫 Gluten Free", "🐄 Dairy"] %>
+        <% dietary_restrictions.each do |dr|%>
+            <%= f.check_box :dietary_restrictions, { multiple: true, label: dr, inline: true}, dr, false %>
+        <%end%>
+    <% end %>
 
-    <h4><%= f.label :dietary_restrictions, "Dietary Restrictions:" %></h4>
-    <% dietary_restrictions = ["🥜", "🥚", "🌱", "🍞🚫", "🐄"] %>
-    <% dietary_restrictions.each do |dr|%>
-        <h5><%= f.check_box :dietary_restrictions, { multiple: true },dr, false %>
-        <%= f.label dr%></h5>
-    <%end%>
-
+</br>
     <%= f.submit "Save"%>
 <%end%>
 

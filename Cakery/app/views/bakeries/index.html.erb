@@ -1,19 +1,32 @@
 <h1 style="text-align:center;">Welcome to Cakery Bakery!</h1>
 
-
-<%= link_to "About", bakery_path(@bakery.about) %>
-<%= link_to "Cakes", cakes_path %>
-<%= link_to "Bakers", bakers_path %><br>
-
-<img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Black_Forest_Choc_Cake_1024x450_3-380x360.png" alt="cake 1 image">
-<img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/blackberry_pound_cake_1125x1125-380x360.png" alt="cake 2 image">
-<img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Rahul_Surprise_Cake_1125x1125_2-380x360.png" alt="cake 2 image">
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Black_Forest_Choc_Cake_1024x450_3-380x360.png" style="width:100%;" alt="cake 1 image">
+        </div>
+        <div class="col-sm">
+            <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/blackberry_pound_cake_1125x1125-380x360.png" style="width:100%;" alt="cake 2 image">
+        </div>
+        <div class="col-sm">
+            <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/Rahul_Surprise_Cake_1125x1125_2-380x360.png" style="width:100%;" alt="cake 2 image">
+        </div>
+    </div>
+</div>
+<br>
 <h2>Featured Bakers: </h2>
 
-<% @bakers.each do |baker| %>
-    <% if baker.star_baker %>
-    <img src="<%= baker.img_url %>" alt="baker photo" width="350" height="350">
-    ⭐️ <%= link_to baker.name, baker_path(baker) %>
+<div class="baker-wrapper">
+    <% @bakers.each do |baker| %>
+        <% if baker.star_baker %>
+            <div class="card text-center" style="width: 350px; margin-bottom:14px;">
+                <img src="<%= baker.img_url %>" class="card-img-top" alt="baker photo" width="350" height="350" />
+                <div class="card-body">
+                    <p class="card-text">
+                    ⭐️ <%= link_to baker.name, baker_path(baker) %>
+                    </p>
+                </div>
+            </div>
+        <% end %>
     <% end %>
-<% end %>
+</div>

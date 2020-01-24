@@ -1,6 +1,8 @@
-<h1>CAKES</h1>
+<h1 style="text-align:center;">Our Cakes</h1>
 
  <% @cakes.each do |cake|%>
-        <h1> <%= link_to cake.name, cake_path(cake.id)%></h1>
-        <img class= "index-img" src="<%= cake.img_url%>">  
+        <img class= "index-img" src="<%= cake.img_url%>" width="350" height="350">  
+        <h3> <%= link_to cake.name, cake_path(cake.id)%></h3>
  <%end%>
+
+ <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
