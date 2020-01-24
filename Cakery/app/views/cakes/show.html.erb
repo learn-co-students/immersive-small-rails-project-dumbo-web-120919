@@ -1,11 +1,16 @@
+<div class="row">
+    <div class="col-6">
+        <img class= "show-img" src="<%= @cake.img_url%>" alt="cake image" width="450" height="450">
+    </div>
+    <div class="col-6">
+        <h3><b><%= @cake.name%></b></h3>
+        <p><b>Baker: </b><%= link_to @cake.baker.name, baker_path(@cake.baker)%></p>
 
-    <h1><%= @cake.name%></h1>
-<div>
-    <h3> Baker: <%= link_to @cake.baker.name, baker_path(@cake.baker)%></h3>
-    <img class= "show-img" src="<%= @cake.img_url%>" width="350" height="350">
-    <p><b> Description:</b> <%= @cake.description%></p>
-    <p><b> Occasion:</b> <%= @cake.occasion%></p>
+        <p><b> Description:</b> <%= @cake.description%></p>
 
+
+          
+        <p><b> Suggested Occasion:</b> <%= @cake.occasion%></p>
 <hr>
     <p><b>Flavors: </b></p>
     <ul>
@@ -28,6 +33,5 @@
     <p><%= button_to "Back To All Cakes", cakes_path, :method => :get %></p>
     <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
 
-
-
 </div>    
+
