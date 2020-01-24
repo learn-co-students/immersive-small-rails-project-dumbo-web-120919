@@ -10,6 +10,10 @@
        </div>
        <%end%>
 </div>
-<hr>
-<p><%= button_to "Add New Cake", new_cake_path, :method => :get %></p>
-<p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+
+<p> <% if @logged_in_bakery %>
+        <%= button_to "Make a Cake!", new_cake_path, :method => :get %>
+    <%end%>
+</p><hr>
+
+ <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>

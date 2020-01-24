@@ -31,7 +31,9 @@
         </div>
     <% end %>
 </div>
-<hr>
+<p> <% if @logged_in_bakery %>
+        <%= button_to "Make Changes", edit_baker_path, :method => :get %>
+    <%end%> </p><hr>
 <br>
 <p><%= button_to "Back To Bakers", bakers_path, :method => :get %></p>
 <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>

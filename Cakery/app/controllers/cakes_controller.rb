@@ -1,6 +1,7 @@
 class CakesController < ApplicationController
     before_action :find_cake, only: [:show, :edit, :update, :destroy]
     before_action :foreign_keys, only: [:new, :edit]
+    skip_before_action :authorize, only:[:index, :show]
 
     def index
         @cakes = Cake.all

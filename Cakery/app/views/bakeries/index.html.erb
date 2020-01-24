@@ -32,9 +32,9 @@
 </div>
 
 <% if @logged_in_bakery %>
-    <%= button_to "Logout", eliminate_path, method: :delete %> 
-    <p>Welcome, <%= @logged_in_bakery.name %>!</p>
+    <p> <%= button_to "Logout", eliminate_path, method: :delete %> </p>
+    <ul>Welcome, <%= @logged_in_bakery.name %>!</ul>
 <% else %>
-    <%= button_to 'Login', login_path %>
+    <p><%= button_to 'Login', login_path, method: :get %></p>
 <% end %>
 <hr>

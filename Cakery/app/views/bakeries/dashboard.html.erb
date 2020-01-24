@@ -1,0 +1,6 @@
+<%# if @logged_in_bakery %>
+    <li class='right'> <%#= button_to "Logout", eliminate_path, method: :delete %> </li>
+    <li class='right'>Welcome, <%#= @logged_in_bakery.name %>!</li>
+<%#end%>
+
+<p><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></p>

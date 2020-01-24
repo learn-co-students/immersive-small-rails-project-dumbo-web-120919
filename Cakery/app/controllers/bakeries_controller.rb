@@ -1,6 +1,7 @@
 class BakeriesController < ApplicationController
-    before_action :find_bakery, only: [:index, :show, :edit, :update]
-    # skip_before_action :authorize, only: [:new,:create,:index]
+  
+    before_action :find_bakery, only: [:index, :show, :edit, :update, :dashboard]
+    skip_before_action :authorize, only:[:index, :show]
     
     def index
         @cakes = Cake.all 
@@ -14,7 +15,7 @@ class BakeriesController < ApplicationController
 
     def show
     end
-
+    
     def edit
     end
     
@@ -37,5 +38,7 @@ class BakeriesController < ApplicationController
     def bakery_params
         params.require(:bakery).permit(:name, :location, :phone, :hour, :img_url, :about, :email, :password)
     end
+
+   
 
 end
