@@ -20,9 +20,14 @@
         <%dr_parse.each do |dietary_restrictions|%>
         <span><%= dietary_restrictions%></span>
         <%end%>
-        
+
+    <p> <% if @logged_in_bakery %>
+            <%= button_to "Make Changes", edit_cake_path, :method => :get %>
+        <%end%> </p><hr>    
 
     <p><%= button_to "Back To All Cakes", cakes_path, :method => :get %></p>
-    <p><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></p>
+    <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>
+
+
 
 </div>    

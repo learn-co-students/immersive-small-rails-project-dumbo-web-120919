@@ -32,8 +32,8 @@
 </div>
 
 <% if @logged_in_bakery %>
-    <li class='right'> <%= link_to "Logout", eliminate_path, method: :delete %> </li>
-    <li class='right'>Welcome, <%= @logged_in_bakery.name %>!</li>
+    <p> <%= button_to "Logout", eliminate_path, method: :delete %> </p>
+    <ul>Welcome, <%= @logged_in_bakery.name %>!</ul>
 <% else %>
-    <li class='right'><%= link_to 'Login', login_path %></li>
+    <p><%= button_to 'Login', login_path, method: :get %></p>
 <% end %>

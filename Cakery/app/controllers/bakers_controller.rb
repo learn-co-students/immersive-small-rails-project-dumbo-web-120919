@@ -1,5 +1,6 @@
 class BakersController < ApplicationController
     before_action :find_baker, only: [:show, :edit, :update, :destroy]
+    skip_before_action :authorize, only:[:index, :show]
     
     def index
         @bakers = Baker.all
