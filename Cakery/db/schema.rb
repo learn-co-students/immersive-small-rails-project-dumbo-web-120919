@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 2020_01_24_032113) do
     t.string "hours"
     t.text "about"
     t.string "email"
-    t.string "password"
     t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password"
   end
 
   create_table "bakers", force: :cascade do |t|
