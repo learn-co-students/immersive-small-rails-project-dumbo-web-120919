@@ -1,6 +1,14 @@
-<h1>CAKES</h1>
+<h3 style="text-align:center;">Our Cakes</h3>
 
- <% @cakes.each do |cake|%>
-        <h1> <%= link_to cake.name, cake_path(cake.id)%></h1>
-        <img class= "index-img" src="<%= cake.img_url%>">  
- <%end%>
+<div class="cakes-wrapper">
+       <% @cakes.each do |cake|%>
+       <div class="card text-center" style="width: 350px; margin-bottom:14px;">
+                     <img class= "index-img" src="<%= cake.img_url%>" class="card-img-top" alt="individual photo" width="350" height="350">  
+                     <div class="card-body">
+                     <%= link_to cake.name, cake_path(cake.id), :class => "card-text"%>
+                     </div>
+       </div>
+       <%end%>
+</div>
+
+ <p><%= button_to "Back Home", bakeries_path, :method => :get %></p>

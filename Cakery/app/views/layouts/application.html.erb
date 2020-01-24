@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cakery</title>
+    <title>Cakery Bakery</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,31 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="header">
+        <div class="header-left">
+          <ul class="nav">
+            <li class="nav-item">
+              <%= link_to "About", bakery_path(Bakery.first.about), :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Cakes", cakes_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Bakers", bakers_path, :class => "nav-link" %>
+            </li>
+          </ul>
+        </div>
+        <div class="header-right">
+          <%= fa_icon "twitter" %>
+          <%= fa_icon "facebook" %>
+          <%= fa_icon "instagram" %>
+        </div>
+      </div>
+      <h1 class="header-title"><%= Bakery.first.name %></h1>
+      <h5 style="text-align:center;">Our bakery is freakin' sweet</h5>
+      <hr>
+      <%= yield %>
+    </div>
   </body>
 </html>

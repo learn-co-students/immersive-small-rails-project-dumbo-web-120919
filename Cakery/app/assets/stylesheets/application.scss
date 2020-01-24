@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "font-awesome";
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+
+body {
+    padding: 0 2em;
+}
+
+.wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+}
+
+.header-right {
+    .fa {
+        padding: 0 4px;
+    }
+}
+
+.header-title {
+    text-align: center;
+    font-family: cursive;
+    font-size: 3em;
+    padding: 12px;
+}

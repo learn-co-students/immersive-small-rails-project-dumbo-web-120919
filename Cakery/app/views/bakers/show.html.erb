@@ -1,24 +1,37 @@
-<h1>All About <%=@baker.name%></h1>
-<hr>
-<img src="<%=@baker.img_url%>" alt="baker image" width="450" height="450">
 
-<p>Name: <%= @baker.name %></p>
 
-<% if @baker.star_baker == true %>
-    <p>This is a Star Baker!</p>
-<% end %>
 
-<p>Favorite Quote: "<%= @baker.quote %>"</p>
+  <div class="row">
+    <div class="col-6">
+        <img src="<%=@baker.img_url%>" alt="baker image" width="450" height="450">
+    </div>
+    <div class="col-6">
+        <p><b>Name: </b><%= @baker.name %></p>
 
-<p>Bio: <%= @baker.bio %></p>
+        <% if @baker.star_baker == true %>
+            <p>⭐️ This is a Star Baker!</p>
+        <% end %>
 
-<p>Cakes: </p>
+        <p><b>Favorite Quote: </b>"<%= @baker.quote %>"</p>
 
-<% @baker.cakes.each do |cake| %>
-    <img src="<%= cake.img_url %>" alt="cake image"><br>
-    <%= link_to cake.name, cake_path(cake) %><br>
-<% end %>
+        <p><b>Bio: </b><%= @baker.bio %></p>
+    </div>
+  </div>
+
+
+<p><b>Cakes: </b></p>
+
+<div class="baker-wrapper">
+    <% @baker.cakes.each do |cake| %>
+        <div class="card text-center" style="width: 350px; margin-bottom:14px;">
+            <img src="<%= cake.img_url %>" class="card-img-top" alt="cake image" width="350" height="350">
+            <div class="card-body">
+                <%= link_to cake.name, cake_path(cake) %>
+            </div>
+        </div>
+    <% end %>
+</div>
 
 <br>
-<p><%= link_to "Back to Bakers", bakers_path %></p>
-<p><%= link_to "Back Home", bakeries_path %></p>
+<p><%= button_to "Back To Bakers", bakers_path, :method => :get %></p>
+<p><%= button_to "Back Home", bakeries_path, :method => :get %></p>

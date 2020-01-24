@@ -1,12 +1,24 @@
-<h1>Meet Our Bakers!</h1>
-<img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/08/GBBO-S10-Bakers-Group-13-1024.png" alt="group photo">
+<h3 style="text-align:center;">Meet Our Bakers!</h3>
 
-<% @bakers.each do |baker| %>
-    <% if baker.employment_status == "Active" %>
-        <img src="<%= baker.img_url %>" alt="individual photo" width="350" height="350">
-        <%= link_to baker.name, baker_path(baker) %>
+<div style="text-align: center; margin: 1em 0;">
+    <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/GBBO9_Baker_Group_1209_1024x450_2.png" alt="group photo">
+</div>
+
+<div class="baker-wrapper">
+    <% @bakers.each do |baker| %>
+        <% if baker.employment_status == "Active" %>
+            <div class="card text-center" style="width: 350px; margin-bottom:14px;">
+                <img src="<%= baker.img_url %>" class="card-img-top" alt="individual photo" width="350" height="350">
+                <div class="card-body">
+                    <% if baker.star_baker %>
+                        ⭐️ <%= link_to baker.name, baker_path(baker), :class => "card-text" %>
+                    <% else %>
+                        <%= link_to baker.name, baker_path(baker), :class => "card-text" %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
     <% end %>
-<% end %>
+</div>
 
-
-<p><%= link_to "Back Home", bakeries_path %></p>
+<p><%= button_to "Back Home", bakeries_path, :method => :get %></p>

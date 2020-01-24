@@ -1,4 +1,4 @@
-<h1>Edit this cake</h1>
-<h2><%= render 'form' %></h2>
+<h1>Cake Edit Form</h1>
+<%= render 'form' %>
 <hr>
-<span><%= button_to "Delete Cake", cake_path(@cake.id), :method => :delete %></span>
+<%= button_to "Delete Cake", cake_path(@cake.id), :method => :delete %>

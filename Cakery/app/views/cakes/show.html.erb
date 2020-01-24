@@ -1,27 +1,28 @@
-<h1>This is the cake show page</h1>
 
+    <h1><%= @cake.name%></h1>
 <div>
-    <h4><%= @cake.name%></h4>
-    <h4> Baker: <%= @cake.baker.name%></h4>
+    <h3> Baker: <%= link_to @cake.baker.name, baker_path(@cake.baker)%></h3>
     <img class= "show-img" src="<%= @cake.img_url%>" width="350" height="350">
-    <h4> Occasion: <%= @cake.occasion%> </h4>
+    <p><b> Description:</b> <%= @cake.description%></p>
+    <p><b> Occasion:</b> <%= @cake.occasion%></p>
 
 <hr>
-    <h3>Flavors</h3>
+    <p><b>Flavors: </b></p>
+    <ul>
     <% @cake.flavors.each do |flavor| %>
-        <h4><%= flavor.name%></h4>
-
-    <%end%>  
+        <li><%= flavor.name %></li>
+    <%end%> 
+    </ul> 
 <hr>
-    <h4> Dietary Restrictions: 
-    <%dr = @cake.dietary_restrictions%>
-    <%dr_parse = JSON.parse(dr)%> 
-    <%dr_parse.each do |dietary_restrictions|%>
-      <%= dietary_restrictions%>
-    <%end%>
-    </h4>
+    <p><b> Dietary Restrictions: </b></p>
+        <%dr = @cake.dietary_restrictions%>
+        <%dr_parse = JSON.parse(dr)%> 
+        <%dr_parse.each do |dietary_restrictions|%>
+        <span><%= dietary_restrictions%></span>
+        <%end%>
+        
 
-    <span><%= button_to "Back To All Cakes", cakes_path, :method => :get %></span>
-    <span><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></span>
+    <p><%= button_to "Back To All Cakes", cakes_path, :method => :get %></p>
+    <p><%= button_to "Make Changes", edit_cake_path(@cake.id), :method => :get %></p>
 
 </div>    
