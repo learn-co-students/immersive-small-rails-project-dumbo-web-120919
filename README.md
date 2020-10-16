@@ -37,4 +37,3 @@ In this lesson you're going to build a complete Ruby on Rails application that m
 3. Make sure you and your partner are using good pair-programming practices. Switch the driver every 20 minutes or so. This is a learning opportunity - use this time to solidify your understandings and teach each other.
 
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/rails-assessment'>Rails Assessment</a> on Learn.co and start learning to code for free.</p>
